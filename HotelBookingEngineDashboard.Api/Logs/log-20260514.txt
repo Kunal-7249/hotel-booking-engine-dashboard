@@ -1,0 +1,72 @@
+[17:44:38 WRN] Failed to determine the https port for redirect.
+[17:44:38 INF] HTTP GET /weatherforecast responded 404 in 373.9884ms
+[17:45:01 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 38.4807ms
+[17:49:32 WRN] Failed to determine the https port for redirect.
+[17:49:32 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 200.7160ms
+[18:03:12 WRN] Failed to determine the https port for redirect.
+[18:03:13 INF] Login attempt. Email: kunal@example.com
+[18:03:17 INF] Login successful. UserId: 1, Role: "ExternalUser"
+[18:03:17 INF] HTTP POST /api/Auth/login responded 200 in 5065.2781ms
+[18:05:23 INF] Creating reservation. HotelId: 0, GuestName: string
+[18:05:23 WRN] Hotel not found during reservation. HotelId: 0
+[18:05:23 ERR] HTTP POST /api/Reservations responded 500 in 654.1104ms
+HotelBookingEngineDashboard.Application.Exceptions.NotFoundException: Hotel with ID 0 was not found.
+   at HotelBookingEngineDashboard.Application.Services.ReservationService.CreateAsync(CreateReservationDto dto) in C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\Services\ReservationService.cs:line 60
+   at HotelBookingEngineDashboard.Api.Controllers.ReservationsController.Create(CreateReservationDto dto) in C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Api\Controllers\ReservationsController.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[18:05:23 ERR] Exception caught: Hotel with ID 0 was not found.
+HotelBookingEngineDashboard.Application.Exceptions.NotFoundException: Hotel with ID 0 was not found.
+   at HotelBookingEngineDashboard.Application.Services.ReservationService.CreateAsync(CreateReservationDto dto) in C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\Services\ReservationService.cs:line 60
+   at HotelBookingEngineDashboard.Api.Controllers.ReservationsController.Create(CreateReservationDto dto) in C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Api\Controllers\ReservationsController.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at HotelBookingEngineDashboard.Api.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Api\Middleware\ExceptionHandlingMiddleware.cs:line 24
+[18:05:23 WRN] Handled exception: Hotel with ID 0 was not found.
+[18:05:56 INF] HTTP GET /api/Reservations responded 403 in 64.0753ms
+[18:08:06 INF] Fetching hotel detail. HotelId: 2
+[18:08:07 INF] HTTP GET /api/hotels/2 responded 200 in 142.4541ms
+[18:08:11 INF] Fetching all hotels. CityFilter: none
+[18:08:11 INF] HTTP GET /api/hotels responded 200 in 78.6307ms
+[18:08:15 INF] Login attempt. Email: admin@example.com
+[18:08:16 INF] Login successful. UserId: 3, Role: "Admin"
+[18:08:16 INF] HTTP POST /api/auth/login responded 200 in 563.1171ms
+[18:08:16 INF] Fetching all hotels. CityFilter: none
+[18:08:16 INF] HTTP GET /api/hotels responded 200 in 76.0447ms
+[18:08:37 INF] Fetching all hotels. CityFilter: P
+[18:08:37 INF] HTTP GET /api/hotels responded 200 in 43.4120ms
+[18:08:38 INF] Fetching all hotels. CityFilter: Pu
+[18:08:38 INF] HTTP GET /api/hotels responded 200 in 15.1803ms
+[18:08:38 INF] Fetching all hotels. CityFilter: Pun
+[18:08:38 INF] HTTP GET /api/hotels responded 200 in 11.6346ms
+[18:08:38 INF] Fetching all hotels. CityFilter: Pune
+[18:08:38 INF] HTTP GET /api/hotels responded 200 in 11.8395ms
+[18:08:51 INF] Fetching hotel detail. HotelId: 2
+[18:08:51 INF] HTTP GET /api/hotels/2 responded 200 in 13.7620ms
+[18:09:03 INF] Fetching hotel detail. HotelId: 2
+[18:09:03 INF] HTTP GET /api/hotels/2 responded 200 in 21.3013ms
+[18:09:05 INF] HTTP GET /api/reservations responded 200 in 287.7337ms
+[18:09:26 INF] Fetching all hotels. CityFilter: none
+[18:09:26 INF] HTTP GET /api/hotels responded 200 in 53.2814ms

@@ -1,0 +1,11 @@
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.deps.json
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.AssemblyInfoInputs.cache
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.AssemblyInfo.cs
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\refint\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\ref\HotelBookingEngineDashboard.Domain.dll

@@ -1,0 +1,15 @@
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\bin\Debug\net8.0\HotelBookingEngineDashboard.Application.deps.json
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\bin\Debug\net8.0\HotelBookingEngineDashboard.Application.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\bin\Debug\net8.0\HotelBookingEngineDashboard.Application.pdb
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.csproj.AssemblyReference.cache
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.AssemblyInfoInputs.cache
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.AssemblyInfo.cs
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.csproj.CoreCompileInputs.cache
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBoo.0FFB6A86.Up2Date
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\refint\HotelBookingEngineDashboard.Application.dll
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\HotelBookingEngineDashboard.Application.pdb
+C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Application\obj\Debug\net8.0\ref\HotelBookingEngineDashboard.Application.dll

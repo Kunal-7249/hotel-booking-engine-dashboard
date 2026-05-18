@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Cancel Reservation</h2>
+
+<mat-dialog-content>
+  <p>Are you sure you want to cancel reservation <strong>{{ data.bookingRef }}</strong>?</p>
+  <p>This action cannot be undone.</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">NO, KEEP IT</button>
+  <button mat-raised-button color="warn" (click)="confirm()">YES, CANCEL</button>
+</mat-dialog-actions>

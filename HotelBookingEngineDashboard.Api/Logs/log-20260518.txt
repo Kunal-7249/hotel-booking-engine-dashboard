@@ -1,0 +1,22 @@
+[11:08:14 WRN] Failed to determine the https port for redirect.
+[11:08:16 INF] Fetching all hotels. CityFilter: none
+[11:08:25 INF] HTTP GET /api/hotels responded 200 in 10488.9355ms
+[11:08:30 INF] Fetching all hotels. CityFilter: none
+[11:08:31 INF] HTTP GET /api/hotels responded 200 in 297.1481ms
+[11:08:43 INF] Login attempt. Email: kunal@example.com
+[11:08:44 INF] Login successful. UserId: 1, Role: "ExternalUser"
+[11:08:44 INF] HTTP POST /api/auth/login responded 200 in 1460.8845ms
+[11:08:44 INF] Fetching all hotels. CityFilter: none
+[11:08:44 INF] HTTP GET /api/hotels responded 200 in 138.4254ms
+[11:08:50 INF] HTTP GET /api/reservations/my-bookings responded 200 in 303.3586ms
+[11:08:54 INF] Fetching all hotels. CityFilter: none
+[11:08:54 INF] HTTP GET /api/hotels responded 200 in 19.2168ms
+[11:09:00 INF] Login attempt. Email: admin@example.com
+[11:09:00 INF] Login successful. UserId: 3, Role: "Admin"
+[11:09:00 INF] HTTP POST /api/auth/login responded 200 in 297.8335ms
+[11:09:00 INF] Fetching all hotels. CityFilter: none
+[11:09:00 INF] HTTP GET /api/hotels responded 200 in 32.3050ms
+[11:09:02 INF] HTTP GET /api/reservations responded 200 in 78.8312ms
+[11:09:12 INF] Fetching all hotels. CityFilter: none
+[11:09:12 INF] HTTP GET /api/hotels responded 200 in 13.1932ms
+[11:09:15 INF] HTTP GET /api/reservations responded 200 in 47.8386ms

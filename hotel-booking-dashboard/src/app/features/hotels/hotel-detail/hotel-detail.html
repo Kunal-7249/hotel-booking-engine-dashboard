@@ -1,0 +1,71 @@
+<div class="detail-container">
+
+  @if (isLoading()) {
+    <div class="spinner-container">
+      <mat-spinner diameter="48" />
+    </div>
+  }
+
+  @if (!isLoading() && hotel()) {
+    <button mat-button class="back-btn" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Hotels
+    </button>
+
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>{{ hotel()!.name }}</mat-card-title>
+        <mat-card-subtitle>{{ hotel()!.city }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="info-grid">
+
+          <div class="info-item">
+            <span class="label">Star Rating</span>
+            <span class="stars">{{ getStars(hotel()!.starRating) }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Price Per Night</span>
+            <span class="price">₹{{ hotel()!.pricePerNight | number }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Availability</span>
+            @if (hotel()!.isAvailable) {
+              <mat-chip class="available">Available</mat-chip>
+            } @else {
+              <mat-chip class="unavailable">Not Available</mat-chip>
+            }
+          </div>
+
+          <div class="info-item full-width">
+            <span class="label">Description</span>
+            <p class="description">{{ hotel()!.description }}</p>
+          </div>
+
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!hotel()!.isAvailable"
+          (click)="bookHotel()">
+          <mat-icon>book_online</mat-icon>
+          BOOK NOW
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }
+
+  @if (!isLoading() && !hotel()) {
+    <div class="not-found">
+      <mat-icon>search_off</mat-icon>
+      <p>Hotel not found.</p>
+      <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+    </div>
+  }
+
+</div>

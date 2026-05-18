@@ -1,0 +1,22 @@
+<mat-toolbar class="navbar">
+  <span>🏨 Hotel Booking Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/hotels">Hotels</button>
+
+  @if (authService.isLoggedIn()) {
+    @if (authService.isAdmin()) {
+      <button mat-button routerLink="/reservations">Reservations</button>
+    } @else {
+      <button mat-button routerLink="/my-bookings">My Bookings</button>
+    }
+    <span class="username">👤 {{ authService.currentUser()?.username }}</span>
+    <button mat-button (click)="logout()">Logout</button>
+  } @else {
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  }
+</mat-toolbar>
+
+<div class="page-container">
+  <router-outlet />
+</div>

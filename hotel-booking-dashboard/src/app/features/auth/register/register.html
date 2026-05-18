@@ -1,0 +1,77 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>Create Account</mat-card-title>
+      <mat-card-subtitle>Register to get started</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Username</mat-label>
+  <input matInput formControlName="username" />
+  <mat-icon matSuffix>person</mat-icon>
+  @if (f['username'].touched && f['username'].hasError('required')) {
+    <mat-error>Username is required.</mat-error>
+  }
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="full-width">
+  <mat-label>Email</mat-label>
+  <input matInput formControlName="email" type="email" />
+  <mat-icon matSuffix>email</mat-icon>
+  @if (f['email'].touched && f['email'].hasError('required')) {
+    <mat-error>Email is required.</mat-error>
+  }
+  @if (f['email'].touched && f['email'].hasError('email')) {
+    <mat-error>Enter a valid email.</mat-error>
+  }
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="full-width">
+  <mat-label>Password</mat-label>
+  <input matInput formControlName="password"
+    [type]="hidePassword() ? 'password' : 'text'" />
+  <mat-icon matSuffix style="cursor:pointer"
+    (click)="hidePassword.set(!hidePassword())">
+    {{ hidePassword() ? 'visibility_off' : 'visibility' }}
+  </mat-icon>
+  @if (f['password'].touched && f['password'].hasError('required')) {
+    <mat-error>Password is required.</mat-error>
+  }
+  @if (f['password'].touched && f['password'].hasError('minlength')) {
+    <mat-error>Password must be at least 6 characters.</mat-error>
+  }
+</mat-form-field>
+
+
+
+        @if (errorMessage()) {
+          <p class="error-message">
+            <mat-icon>error</mat-icon>
+            {{ errorMessage() }}
+          </p>
+        }
+
+        <button mat-raised-button color="primary"
+          type="submit" class="submit-btn"
+          [disabled]="isSubmitting()">
+          @if (isSubmitting()) {
+            <mat-spinner diameter="20" />
+          } @else {
+            REGISTER
+          }
+        </button>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <p class="register-link">
+        Already have an account?
+        <a routerLink="/login">Sign in here</a>
+      </p>
+    </mat-card-actions>
+  </mat-card>
+</div>

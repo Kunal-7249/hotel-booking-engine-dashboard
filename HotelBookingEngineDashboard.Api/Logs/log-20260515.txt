@@ -1,0 +1,66 @@
+[13:42:33 WRN] Failed to determine the https port for redirect.
+[13:42:34 INF] Login attempt. Email: admin@example.com
+[13:42:38 INF] Login successful. UserId: 3, Role: "Admin"
+[13:42:38 INF] HTTP POST /api/auth/login responded 200 in 5350.0529ms
+[13:42:39 INF] Fetching all hotels. CityFilter: none
+[13:42:39 INF] HTTP GET /api/hotels responded 200 in 441.8651ms
+[13:42:42 INF] HTTP GET /api/reservations responded 200 in 275.8815ms
+[13:42:45 INF] Fetching all hotels. CityFilter: none
+[13:42:45 INF] HTTP GET /api/hotels responded 200 in 19.6645ms
+[13:43:00 INF] HTTP GET /api/reservations responded 200 in 21.8364ms
+[13:43:06 INF] Fetching all hotels. CityFilter: none
+[13:43:06 INF] HTTP GET /api/hotels responded 200 in 17.9067ms
+[13:43:10 INF] Fetching hotel detail. HotelId: 1
+[13:43:10 INF] HTTP GET /api/hotels/1 responded 200 in 52.5670ms
+[13:43:11 INF] Fetching all hotels. CityFilter: none
+[13:43:11 INF] HTTP GET /api/hotels responded 200 in 17.1126ms
+[13:46:45 INF] HTTP GET /api/reservations responded 200 in 51.0945ms
+[13:46:46 INF] Fetching all hotels. CityFilter: none
+[13:46:46 INF] HTTP GET /api/hotels responded 200 in 13.9621ms
+[13:50:00 INF] Fetching hotel detail. HotelId: 1
+[13:50:00 INF] HTTP GET /api/hotels/1 responded 200 in 25.7344ms
+[13:50:36 INF] Creating reservation. HotelId: 1, GuestName: Rohit
+[13:50:36 INF] Reservation created. BookingRef: BK-DDEA95F5, UserId: 3
+[13:50:36 INF] HTTP POST /api/reservations responded 200 in 904.8924ms
+[13:50:36 INF] HTTP GET /api/reservations responded 200 in 23.4080ms
+[13:59:53 INF] Login attempt. Email: kunal@example.com
+[13:59:53 INF] Login successful. UserId: 1, Role: "ExternalUser"
+[13:59:53 INF] HTTP POST /api/auth/login responded 200 in 525.9766ms
+[13:59:53 INF] Fetching all hotels. CityFilter: none
+[13:59:54 INF] HTTP GET /api/hotels responded 200 in 150.0813ms
+[14:00:01 INF] HTTP GET /api/reservations/my-bookings responded 200 in 179.2833ms
+[14:00:06 INF] Fetching all hotels. CityFilter: none
+[14:00:06 INF] HTTP GET /api/hotels responded 200 in 21.3168ms
+[14:00:11 INF] Fetching hotel detail. HotelId: 1
+[14:00:11 INF] HTTP GET /api/hotels/1 responded 200 in 46.1224ms
+[14:00:13 INF] Fetching all hotels. CityFilter: none
+[14:00:13 INF] HTTP GET /api/hotels responded 200 in 31.1832ms
+[15:02:49 INF] Fetching all hotels. CityFilter: none
+[15:02:50 INF] HTTP GET /api/hotels responded 200 in 102.4347ms
+[15:02:51 INF] Fetching hotel detail. HotelId: 2
+[15:02:51 INF] HTTP GET /api/hotels/2 responded 200 in 17.7122ms
+[15:02:54 INF] Fetching all hotels. CityFilter: none
+[15:02:55 INF] HTTP GET /api/hotels responded 200 in 32.5292ms
+[15:09:07 INF] Fetching all hotels. CityFilter: none
+[15:09:07 INF] HTTP GET /api/hotels responded 200 in 48.3200ms
+[15:09:18 INF] Fetching all hotels. CityFilter: none
+[15:09:18 INF] HTTP GET /api/hotels responded 200 in 26.0746ms
+[15:09:20 INF] Login attempt. Email: kunal@example.com
+[15:09:20 INF] Login successful. UserId: 1, Role: "ExternalUser"
+[15:09:20 INF] HTTP POST /api/auth/login responded 200 in 326.4398ms
+[15:09:20 INF] Fetching all hotels. CityFilter: none
+[15:09:21 INF] HTTP GET /api/hotels responded 200 in 26.8012ms
+[15:09:22 INF] HTTP GET /api/reservations/my-bookings responded 200 in 22.1696ms
+[15:09:32 INF] Fetching all hotels. CityFilter: none
+[15:09:32 INF] HTTP GET /api/hotels responded 200 in 23.4989ms
+[15:37:06 INF] Fetching hotel detail. HotelId: 1
+[15:37:06 INF] HTTP GET /api/hotels/1 responded 200 in 82.4577ms
+[15:37:08 INF] Fetching all hotels. CityFilter: none
+[15:37:08 INF] HTTP GET /api/hotels responded 200 in 32.0390ms
+[15:37:18 INF] Fetching hotel detail. HotelId: 1
+[15:37:18 INF] HTTP GET /api/hotels/1 responded 200 in 38.5260ms
+[15:37:22 INF] Fetching all hotels. CityFilter: none
+[15:37:22 INF] HTTP GET /api/hotels responded 200 in 58.0363ms
+[15:37:24 INF] HTTP GET /api/reservations/my-bookings responded 200 in 26.1937ms
+[15:37:26 INF] Fetching all hotels. CityFilter: none
+[15:37:26 INF] HTTP GET /api/hotels responded 200 in 17.7408ms

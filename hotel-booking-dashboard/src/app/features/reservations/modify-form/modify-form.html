@@ -1,0 +1,105 @@
+<div class="form-container">
+    <button mat-button class="back-btn" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon> Back to Reservations
+    </button>
+
+    @if (isLoading()) {
+    <div class="spinner-container">
+        <mat-spinner diameter="48" />
+    </div>
+    }
+
+    @if (!isLoading() && reservation()) {
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Modify Reservation</mat-card-title>
+            <mat-card-subtitle>
+                {{ reservation()!.bookingRef }} — {{ reservation()!.hotelName }}
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <!-- Guest Name -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Guest Name</mat-label>
+                    <input matInput formControlName="guestName" />
+                    @if (f['guestName'].touched && f['guestName'].hasError('required')) {
+                    <mat-error>Guest name is required.</mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Guest Age -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Guest Age</mat-label>
+                    <input matInput type="number" formControlName="guestAge" />
+                    @if (f['guestAge'].touched && f['guestAge'].hasError('required')) {
+                    <mat-error>Guest age is required.</mat-error>
+                    }
+                    @if (f['guestAge'].touched && f['guestAge'].hasError('min')) {
+                    <mat-error>Guest must be at least 18 years old.</mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Number of Guests -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Number of Guests</mat-label>
+                    <input matInput type="number" formControlName="numberOfGuests" />
+                    @if (f['numberOfGuests'].touched && f['numberOfGuests'].hasError('required')) {
+                    <mat-error>Number of guests is required.</mat-error>
+                    }
+                    @if (f['numberOfGuests'].touched && f['numberOfGuests'].hasError('min')) {
+                    <mat-error>At least 1 guest is required.</mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Check-in Date -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Check-in Date</mat-label>
+                    <input matInput [matDatepicker]="checkinPicker" formControlName="checkInDate" [min]="today" />
+                    <mat-datepicker-toggle matIconSuffix [for]="checkinPicker" />
+                    <mat-datepicker #checkinPicker />
+                    @if (f['checkInDate'].touched && f['checkInDate'].hasError('required')) {
+                    <mat-error>Check-in date is required.</mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- Check-out Date -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Check-out Date</mat-label>
+                    <input matInput [matDatepicker]="checkoutPicker" formControlName="checkOutDate" [min]="today" />
+                    <mat-datepicker-toggle matIconSuffix [for]="checkoutPicker" />
+                    <mat-datepicker #checkoutPicker />
+                    @if (f['checkOutDate'].touched && f['checkOutDate'].hasError('required')) {
+                    <mat-error>Check-out date is required.</mat-error>
+                    }
+                </mat-form-field>
+
+                <!-- cross-field error OUTSIDE the mat-form-field -->
+                @if (form.hasError('checkoutBeforeCheckin') && f['checkOutDate'].touched) {
+                <p class="error-message">
+                    <mat-icon style="font-size:16px; vertical-align: middle;">error</mat-icon>
+                    Check-out date must be after check-in date.
+                </p>
+                }
+
+                <!-- API Error -->
+                @if (errorMessage()) {
+                <p class="error-message">{{ errorMessage() }}</p>
+                }
+
+                <!-- Submit -->
+                <button mat-raised-button color="primary" type="submit" class="submit-btn" [disabled]="isSubmitting()">
+                    @if (isSubmitting()) {
+                    <mat-spinner diameter="20" />
+                    } @else {
+                    SAVE CHANGES
+                    }
+                </button>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+    }
+</div>
