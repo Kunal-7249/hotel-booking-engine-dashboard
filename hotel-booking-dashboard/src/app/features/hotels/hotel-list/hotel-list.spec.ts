@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HotelList } from './hotel-list';
+import { RouterModule } from '@angular/router';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('HotelList', () => {
   let component: HotelList;
@@ -8,7 +11,14 @@ describe('HotelList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HotelList],
+      imports: [
+        HotelList,
+        RouterModule.forRoot([])
+      ],
+      providers: [
+        provideHttpClient(withFetch()),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HotelList);

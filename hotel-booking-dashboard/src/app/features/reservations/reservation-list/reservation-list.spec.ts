@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReservationList } from './reservation-list';
+import { RouterModule } from '@angular/router';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ReservationList', () => {
   let component: ReservationList;
@@ -8,7 +11,14 @@ describe('ReservationList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReservationList],
+      imports: [
+        ReservationList,
+        RouterModule.forRoot([])
+      ],
+      providers: [
+        provideHttpClient(withFetch()),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReservationList);

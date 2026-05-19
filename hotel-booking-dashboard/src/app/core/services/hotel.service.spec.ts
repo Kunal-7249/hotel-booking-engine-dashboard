@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { HotelService } from './hotel.service';
 import { Hotel, HotelDetail } from '../models/hotel.model';
 
 describe('HotelService', () => {
   let service: HotelService;
   let httpMock: HttpTestingController;
-  const apiUrl = 'https://localhost:5018/api/hotels';
+
+  const apiUrl = 'http://localhost:5018/api/hotels';
 
   const sampleHotels: Hotel[] = [
     { hotelId: 1, name: 'The Grand Oberoi', city: 'Mumbai', starRating: 5, pricePerNight: 12000 },
@@ -28,7 +29,7 @@ describe('HotelService', () => {
     TestBed.configureTestingModule({
       providers: [
         HotelService,
-        provideHttpClient(),
+        provideHttpClient(withFetch()),
         provideHttpClientTesting()
       ]
     });
@@ -38,10 +39,8 @@ describe('HotelService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify();  // ← ensures no unexpected HTTP calls
+    httpMock.verify();
   });
-
-  // ── getAll Tests ──────────────────────────────────────
 
   it('should fetch all hotels without city filter', () => {
     service.getAll().subscribe(hotels => {
@@ -74,13 +73,11 @@ describe('HotelService', () => {
     req.flush([]);
   });
 
-  // ── getById Tests ─────────────────────────────────────
-
   it('should fetch hotel detail by id', () => {
     service.getById(1).subscribe(hotel => {
       expect(hotel.hotelId).toBe(1);
       expect(hotel.name).toBe('The Grand Oberoi');
-      expect(hotel.isAvailable).toBe(true);
+      expect(hotel.isAvailable).toBeTruthy();
     });
 
     const req = httpMock.expectOne(`${apiUrl}/1`);
