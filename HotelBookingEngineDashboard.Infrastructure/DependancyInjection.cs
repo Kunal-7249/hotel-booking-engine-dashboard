@@ -20,7 +20,16 @@ namespace HotelBookingEngineDashboard.Infrastructure
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("Conn")));
+                configuration.GetConnectionString("Conn"),
+                    sqlServerOptionsAction: sqlOptions =>
+                    {
+                        sqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 5,                  
+                            maxRetryDelay: TimeSpan.FromSeconds(30), 
+                            errorNumbersToAdd: null            
+                        );
+                    }
+            ));
 
             services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddScoped<IReservationRepository, ReservationRepository>();

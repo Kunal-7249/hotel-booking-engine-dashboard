@@ -8,11 +8,15 @@
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngular", policy =>
-                    policy.WithOrigins("http://localhost:4200", 
-                    "https://hotel-booking-engine-dashboard.vercel.app"
-                    )
-                    .AllowAnyHeader()
-                    .AllowAnyMethod());
+                {
+                    policy.WithOrigins(
+                            "http://localhost:4200",
+                            "https://hotel-booking-engine-dashboard.vercel.app"
+                           )
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .SetIsOriginAllowed(origin => true);
+                });
             });
 
             return services;

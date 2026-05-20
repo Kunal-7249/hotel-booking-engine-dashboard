@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj": {}
+    "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj": {
+    "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj",
+        "projectUniqueName": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj",
         "projectName": "HotelBookingEngineDashboard.Api",
-        "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj",
-        "packagesPath": "C:\\Users\\kunalshid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\obj\\",
+        "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj",
+        "packagesPath": "C:\\Users\\kunal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kunalshid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,13 +31,14 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
-                "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj"
+              "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
+                "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj"
               },
-              "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj"
+              "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj"
               }
             }
           }
@@ -52,10 +53,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -116,24 +118,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
+    "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj",
+        "projectUniqueName": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj",
         "projectName": "HotelBookingEngineDashboard.Application",
-        "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj",
-        "packagesPath": "C:\\Users\\kunalshid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\obj\\",
+        "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj",
+        "packagesPath": "C:\\Users\\kunal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kunalshid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -147,10 +149,11 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
-                "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj"
+              "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
+                "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj"
               }
             }
           }
@@ -165,10 +168,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -208,24 +212,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
+    "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj",
         "projectName": "HotelBookingEngineDashboard.Domain",
-        "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj",
-        "packagesPath": "C:\\Users\\kunalshid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\obj\\",
+        "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj",
+        "packagesPath": "C:\\Users\\kunal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kunalshid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -239,6 +243,7 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -253,10 +258,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -274,24 +280,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj": {
+    "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj",
         "projectName": "HotelBookingEngineDashboard.Infrastructure",
-        "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\kunalshid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\HotelBookingEngineDashboard.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\kunal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kunalshid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -305,13 +311,14 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
-                "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj"
+              "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj": {
+                "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Application\\HotelBookingEngineDashboard.Application.csproj"
               },
-              "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
-                "projectPath": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj"
+              "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj": {
+                "projectPath": "C:\\Users\\kunal\\hotel-booking-engine-dashboard\\HotelBookingEngineDashboard.Domain\\HotelBookingEngineDashboard.Domain.csproj"
               }
             }
           }
@@ -326,10 +333,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
@@ -369,7 +377,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
