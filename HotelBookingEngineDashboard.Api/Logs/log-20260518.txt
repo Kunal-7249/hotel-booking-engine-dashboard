@@ -20,3 +20,26 @@
 [11:09:12 INF] Fetching all hotels. CityFilter: none
 [11:09:12 INF] HTTP GET /api/hotels responded 200 in 13.1932ms
 [11:09:15 INF] HTTP GET /api/reservations responded 200 in 47.8386ms
+[12:10:50 WRN] Failed to determine the https port for redirect.
+[12:10:50 INF] HTTP GET /api/reservations/my-bookings responded 401 in 226.7623ms
+[12:10:51 INF] Fetching all hotels. CityFilter: none
+[12:10:54 INF] HTTP GET /api/hotels responded 200 in 4623.5055ms
+[12:15:19 INF] Fetching all hotels. CityFilter: none
+[12:15:19 INF] HTTP GET /api/reservations/my-bookings responded 401 in 9.4153ms
+[12:15:19 INF] HTTP GET /api/hotels responded 200 in 326.8464ms
+[12:17:09 INF] Fetching all hotels. CityFilter: none
+[12:17:09 INF] HTTP GET /api/hotels responded 200 in 192.5342ms
+[12:17:09 INF] HTTP GET /api/reservations/my-bookings responded 401 in 7.4156ms
+[17:26:53 INF] HTTP GET /api/reservations/my-bookings responded 401 in 1.2052ms
+[17:26:53 INF] Fetching all hotels. CityFilter: none
+[17:26:53 INF] HTTP GET /api/hotels responded 200 in 120.0126ms
+[18:23:19 INF] HTTP GET /api/reservations/my-bookings responded 401 in 1.9904ms
+[18:23:19 INF] Fetching all hotels. CityFilter: none
+[18:23:19 INF] HTTP GET /api/hotels responded 200 in 203.9741ms
+[18:26:22 INF] HTTP GET /api/reservations/my-bookings responded 401 in 0.5654ms
+[18:26:22 INF] Fetching all hotels. CityFilter: none
+[18:26:22 INF] HTTP GET /api/hotels responded 200 in 19.7368ms
+[18:32:07 INF] Fetching all hotels. CityFilter: none
+[18:32:07 INF] HTTP GET /api/reservations/my-bookings responded 401 in 9.5047ms
+[18:32:08 INF] HTTP GET /api/hotels responded 200 in 228.5586ms
+[19:02:19 INF] HTTP GET /api/reservations/my-bookings responded 401 in 0.4043ms

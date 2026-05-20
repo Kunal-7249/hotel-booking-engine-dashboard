@@ -6,10 +6,11 @@ import {
   CreateReservationRequest,
   UpdateReservationRequest
 } from '../models/reservation.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReservationService {
-  private apiUrl = 'http://localhost:5018/api/reservations'; 
+  private apiUrl = `${environment.apiUrl}/api/reservations`;
 
   constructor(private http: HttpClient) {}
 

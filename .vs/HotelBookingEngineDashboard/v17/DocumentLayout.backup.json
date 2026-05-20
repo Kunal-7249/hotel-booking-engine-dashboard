@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{911BEE70-CEE6-41D8-8E49-16BA1CB7F7FE}|HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj|c:\\users\\kunalshid\\source\\repos\\hotelbookingenginedashboard\\hotelbookingenginedashboard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{911BEE70-CEE6-41D8-8E49-16BA1CB7F7FE}|HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj|solutionrelative:hotelbookingenginedashboard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{911BEE70-CEE6-41D8-8E49-16BA1CB7F7FE}|HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj|c:\\users\\kunalshid\\source\\repos\\hotelbookingenginedashboard\\hotelbookingenginedashboard.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{911BEE70-CEE6-41D8-8E49-16BA1CB7F7FE}|HotelBookingEngineDashboard.Api\\HotelBookingEngineDashboard.Api.csproj|solutionrelative:hotelbookingenginedashboard.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "HotelBookingEngineDashboard.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\appsettings.json",
+              "RelativeToolTip": "HotelBookingEngineDashboard.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-18T14:32:39.665Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "HotelBookingEngineDashboard.Api\\Program.cs",
               "ToolTip": "C:\\Users\\kunalshid\\source\\repos\\HotelBookingEngineDashboard\\HotelBookingEngineDashboard.Api\\Program.cs",
               "RelativeToolTip": "HotelBookingEngineDashboard.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T07:59:15.661Z",
               "EditorCaption": ""
