@@ -1,12 +1,11 @@
 name: Deploy ASP.NET Core to Azure
-
 on:
   push:
     branches:
       - main
     paths:
-      - 'HotelBookingEngineDashboard.**' # Triggers only if anything inside the backend folder changes
-      - '.github/workflows/main.yml'     # Triggers if you modify this pipeline file
+      - 'HotelBookingEngineDashboard.**'
+      - '.github/workflows/main.yml'
   workflow_dispatch:
 
 jobs:
@@ -36,15 +35,33 @@ jobs:
           name: .net-app
           path: ./publish
 
+  test:
+    runs-on: ubuntu-latest
+    needs: build          # ← runs after build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Run Tests
+        run: dotnet test --configuration Release --no-restore --verbosity normal
+
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: test           # ← runs after test, not build directly
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
