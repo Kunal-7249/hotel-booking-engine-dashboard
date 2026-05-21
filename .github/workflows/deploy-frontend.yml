@@ -1,11 +1,12 @@
 name: Deploy Angular to Vercel
+
 on:
   push:
     branches:
       - main
     paths:
-      - 'hotel-booking-dashboard/**'
-      - '.github/workflows/deploy-frontend.yml'
+      - 'hotel-booking-dashboard/**' # Triggers only if anything inside your Angular folder changes
+      - '.github/workflows/angular-ci.yml'
   workflow_dispatch:
 
 jobs:
@@ -13,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hotel-booking-dashboard
+        working-directory: ./hotel-booking-dashboard # Runs all commands inside your Angular folder
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -29,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Run Unit Tests
-        run: npx vitest run    # ← vitest not karma
+        run: npx vitest run # ← Optimized for Vitest (Runs tests once without watching)
 
   deploy:
     runs-on: ubuntu-latest
