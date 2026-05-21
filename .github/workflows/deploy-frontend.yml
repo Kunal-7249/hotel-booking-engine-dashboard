@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'hotel-booking-dashboard/**' # Triggers only if anything inside your Angular folder changes
-      - '.github/workflows/angular-ci.yml'
+      - '.github/workflows/deploy-frontend.yml'
   workflow_dispatch:
 
 jobs:
