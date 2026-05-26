@@ -16,7 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerWithJwt();               
 builder.Services.AddJwtAuthentication(builder.Configuration);  
-builder.Services.AddCorsPolicy();                   
+builder.Services.AddCorsPolicy();
+builder.Services.AddHealthChecks();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<IHotelService, HotelService>();
@@ -43,7 +44,7 @@ app.UseSerilogRequestLogging(options =>
 });
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.MapHealthChecks("/health");
 app.MapControllers();
 
 app.Run();
