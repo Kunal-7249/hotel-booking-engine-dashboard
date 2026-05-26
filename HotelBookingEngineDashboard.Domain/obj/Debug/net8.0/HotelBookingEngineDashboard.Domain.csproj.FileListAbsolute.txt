@@ -9,3 +9,15 @@ C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDa
 C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\refint\HotelBookingEngineDashboard.Domain.dll
 C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
 C:\Users\kunalshid\source\repos\HotelBookingEngineDashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\ref\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.deps.json
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\bin\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.AssemblyInfoInputs.cache
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.AssemblyInfo.cs
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.sourcelink.json
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\refint\HotelBookingEngineDashboard.Domain.dll
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\HotelBookingEngineDashboard.Domain.pdb
+C:\Users\kunal\hotel-booking-engine-dashboard\HotelBookingEngineDashboard.Domain\obj\Debug\net8.0\ref\HotelBookingEngineDashboard.Domain.dll

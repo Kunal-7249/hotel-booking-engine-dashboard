@@ -23,7 +23,7 @@ namespace HotelBookingEngineDashboard.WarmupFunction
         }
 
         [Function("WarmupPing")]
-        public async Task Run([TimerTrigger("0 */14 * * * *")] TimerInfo timer)
+        public async Task Run([TimerTrigger("0 */9 * * * *")] TimerInfo timer)
         {
             _logger.LogInformation("Warmup ping started at {Time}", DateTime.UtcNow);
 

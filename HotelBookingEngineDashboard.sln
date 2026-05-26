@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.37216.2
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBookingEngineDashboard.Api", "HotelBookingEngineDashboard.Api\HotelBookingEngineDashboard.Api.csproj", "{911BEE70-CEE6-41D8-8E49-16BA1CB7F7FE}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBookingEngineDashboard.Application", "HotelBookingEngineDashboard.Application\HotelBookingEngineDashboard.Application.csproj", "{E395C2BB-6AAC-48A5-8325-C1ACE9117D58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBookingEngineDashboard.Tests", "HotelBookingEngineDashboard.Tests\HotelBookingEngineDashboard.Tests.csproj", "{E304C9AD-D157-4AD9-84D6-2C6D4A05B4E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBookingEngineDashboard.WarmupFunction", "HotelBookingEngineDashboard.WarmupFunction\HotelBookingEngineDashboard.WarmupFunction.csproj", "{98F15DA2-ADBC-4E1D-8916-08EB7BFEA52A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{E304C9AD-D157-4AD9-84D6-2C6D4A05B4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E304C9AD-D157-4AD9-84D6-2C6D4A05B4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E304C9AD-D157-4AD9-84D6-2C6D4A05B4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F15DA2-ADBC-4E1D-8916-08EB7BFEA52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F15DA2-ADBC-4E1D-8916-08EB7BFEA52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F15DA2-ADBC-4E1D-8916-08EB7BFEA52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F15DA2-ADBC-4E1D-8916-08EB7BFEA52A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
