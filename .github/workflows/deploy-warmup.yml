@@ -1,0 +1,35 @@
+name: Deploy Warmup Function to Azure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'HotelBookingEngineDashboard.WarmupFunction/**'  # ← only triggers when function changes
+      - '.github/workflows/deploy-warmup.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Publish Warmup Function
+        run: dotnet publish HotelBookingEngineDashboard.WarmupFunction/HotelBookingEngineDashboard.WarmupFunction.csproj -c Release -o ./warmup-publish
+
+      - name: Deploy to Azure Function App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'hotel-booking-warmup-func'
+          publish-profile: ${{ secrets.AZURE_WARMUP_PUBLISH_PROFILE }}
+          package: ./warmup-publish
