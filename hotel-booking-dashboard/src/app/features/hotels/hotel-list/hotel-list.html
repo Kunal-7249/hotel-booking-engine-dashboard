@@ -42,9 +42,7 @@
           </mat-card-content>
 
           <mat-card-actions>
-            <button mat-button (click)="viewDetail(hotel.hotelId)">
-              VIEW DETAILS
-            </button>
+            <button mat-button (click)="viewDetail(hotel.hotelId)">VIEW DETAILS</button>
             <button mat-raised-button color="primary" (click)="bookHotel(hotel.hotelId)">
               BOOK NOW
             </button>
@@ -52,5 +50,15 @@
         </mat-card>
       }
     </div>
+
+    <mat-paginator
+      [length]="totalCount()"
+      [pageSize]="pageSize()"
+      [pageIndex]="currentPage()"
+      [pageSizeOptions]="[3, 6, 9, 12]"
+      (page)="onPageChange($event)"
+      showFirstLastButtons
+    >
+    </mat-paginator>
   }
 </div>

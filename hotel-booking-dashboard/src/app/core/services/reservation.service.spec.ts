@@ -73,24 +73,80 @@ describe('ReservationService', () => {
   // ── getAll Tests ──────────────────────────────────────
 
   it('should fetch all reservations', () => {
-    service.getAll().subscribe(reservations => {
-      expect(reservations.length).toBe(2);
-      expect(reservations[0].bookingRef).toBe('BK-10001');
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    expect(req.request.method).toBe('GET');
-    req.flush(sampleReservations);
+  service.getAll().subscribe(result => {
+    expect(result.items.length).toBe(2);
+    expect(result.items[0].bookingRef).toBe('BK-10001');
   });
 
-  it('should return empty list when no reservations exist', () => {
-    service.getAll().subscribe(reservations => {
-      expect(reservations.length).toBe(0);
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    req.flush([]);
+  const req = httpMock.expectOne(`${apiUrl}?page=1&pageSize=10`);
+  expect(req.request.method).toBe('GET');
+  req.flush({
+    items: sampleReservations,
+    totalCount: 2,
+    page: 1,
+    pageSize: 10,
+    totalPages: 1,
+    hasNextPage: false,
+    hasPreviousPage: false
   });
+});
+
+
+it('should return empty list when no reservations exist', () => {
+  service.getAll().subscribe(result => {
+    expect(result.items.length).toBe(0);
+    expect(result.totalCount).toBe(0);
+  });
+
+  const req = httpMock.expectOne(`${apiUrl}?page=1&pageSize=10`);
+  req.flush({
+    items: [],
+    totalCount: 0,
+    page: 1,
+    pageSize: 10,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false
+  });
+});
+
+  // ── getMyBookings Tests ───────────────────────────────
+
+it('should fetch my bookings', () => {
+  service.getMyBookings().subscribe(result => {
+    expect(result.items.length).toBe(1);
+    expect(result.items[0].status).toBe('CONFIRMED');
+  });
+
+  const req = httpMock.expectOne(`${apiUrl}/my-bookings?page=1&pageSize=10`);
+  expect(req.request.method).toBe('GET');
+  req.flush({
+    items: [sampleReservations[0]],
+    totalCount: 1,
+    page: 1,
+    pageSize: 10,
+    totalPages: 1,
+    hasNextPage: false,
+    hasPreviousPage: false
+  });
+});
+
+it('should return empty list when no bookings found', () => {
+  service.getMyBookings().subscribe(result => {
+    expect(result.items.length).toBe(0);
+  });
+
+  const req = httpMock.expectOne(`${apiUrl}/my-bookings?page=1&pageSize=10`);
+  req.flush({
+    items: [],
+    totalCount: 0,
+    page: 1,
+    pageSize: 10,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false
+  });
+});
 
   // ── getById Tests ─────────────────────────────────────
 
@@ -112,28 +168,6 @@ describe('ReservationService', () => {
     const req = httpMock.expectOne(`${apiUrl}/2`);
     expect(req.request.method).toBe('GET');
     req.flush(sampleReservations[1]);
-  });
-
-  // ── getMyBookings Tests ───────────────────────────────
-
-  it('should fetch my bookings', () => {
-    service.getMyBookings().subscribe(reservations => {
-      expect(reservations.length).toBe(1);
-      expect(reservations[0].status).toBe('CONFIRMED');
-    });
-
-    const req = httpMock.expectOne(`${apiUrl}/my-bookings`);
-    expect(req.request.method).toBe('GET');
-    req.flush([sampleReservations[0]]);
-  });
-
-  it('should return empty list when no bookings found', () => {
-    service.getMyBookings().subscribe(reservations => {
-      expect(reservations.length).toBe(0);
-    });
-
-    const req = httpMock.expectOne(`${apiUrl}/my-bookings`);
-    req.flush([]);
   });
 
   // ── create Tests ──────────────────────────────────────

@@ -43,35 +43,60 @@ describe('HotelService', () => {
   });
 
   it('should fetch all hotels without city filter', () => {
-    service.getAll().subscribe(hotels => {
-      expect(hotels.length).toBe(2);
-      expect(hotels[0].name).toBe('The Grand Oberoi');
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    expect(req.request.method).toBe('GET');
-    req.flush(sampleHotels);
+  service.getAll().subscribe(result => {
+    expect(result.items.length).toBe(2);
+    expect(result.items[0].name).toBe('The Grand Oberoi');
   });
 
-  it('should fetch hotels with city filter', () => {
-    service.getAll('Mumbai').subscribe(hotels => {
-      expect(hotels.length).toBe(1);
-      expect(hotels[0].city).toBe('Mumbai');
-    });
+  const req = httpMock.expectOne(`${apiUrl}?page=1&pageSize=6`);
+  expect(req.request.method).toBe('GET');
+  req.flush({
+    items: sampleHotels,
+    totalCount: 2,
+    page: 1,
+    pageSize: 6,
+    totalPages: 1,
+    hasNextPage: false,
+    hasPreviousPage: false
+  });
+});
 
-    const req = httpMock.expectOne(`${apiUrl}?city=Mumbai`);
-    expect(req.request.method).toBe('GET');
-    req.flush([sampleHotels[0]]);
+it('should fetch hotels with city filter', () => {
+  service.getAll('Mumbai').subscribe(result => {
+    expect(result.items.length).toBe(1);
+    expect(result.items[0].city).toBe('Mumbai');
   });
 
-  it('should return empty list when no hotels found', () => {
-    service.getAll().subscribe(hotels => {
-      expect(hotels.length).toBe(0);
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    req.flush([]);
+  const req = httpMock.expectOne(`${apiUrl}?page=1&pageSize=6&city=Mumbai`);
+  expect(req.request.method).toBe('GET');
+  req.flush({
+    items: [sampleHotels[0]],
+    totalCount: 1,
+    page: 1,
+    pageSize: 6,
+    totalPages: 1,
+    hasNextPage: false,
+    hasPreviousPage: false
   });
+});
+
+it('should return empty list when no hotels found', () => {
+  service.getAll().subscribe(result => {
+    expect(result.items.length).toBe(0);
+    expect(result.totalCount).toBe(0);
+  });
+
+  const req = httpMock.expectOne(`${apiUrl}?page=1&pageSize=6`);
+  req.flush({
+    items: [],
+    totalCount: 0,
+    page: 1,
+    pageSize: 6,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false
+  });
+});
 
   it('should fetch hotel detail by id', () => {
     service.getById(1).subscribe(hotel => {

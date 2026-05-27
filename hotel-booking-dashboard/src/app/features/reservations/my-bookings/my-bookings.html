@@ -16,16 +16,13 @@
     <div class="empty-state">
       <mat-icon>event_busy</mat-icon>
       <p>You have no bookings yet.</p>
-      <button mat-raised-button color="primary" (click)="bookAnother()">
-        Browse Hotels
-      </button>
+      <button mat-raised-button color="primary" (click)="bookAnother()">Browse Hotels</button>
     </div>
   }
 
   @if (!isLoading() && reservations().length > 0) {
     <mat-card class="table-card">
       <table mat-table [dataSource]="reservations()" class="full-width">
-
         <!-- Booking Ref -->
         <ng-container matColumnDef="bookingRef">
           <th mat-header-cell *matHeaderCellDef>Booking Ref</th>
@@ -67,8 +64,17 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
+      <mat-paginator
+        [length]="totalCount()"
+        [pageSize]="pageSize()"
+        [pageIndex]="currentPage()"
+        [pageSizeOptions]="[5, 10, 20]"
+        (page)="onPageChange($event)"
+        showFirstLastButtons
+      >
+      </mat-paginator>
     </mat-card>
   }
 </div>

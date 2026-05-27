@@ -22,13 +22,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
         {
             _hotelRepoMock = new Mock<IHotelRepository>();
             var logger = new Mock<ILogger<HotelService>>();
-            _sut = new HotelService(_hotelRepoMock.Object,logger.Object);
+            _sut = new HotelService(_hotelRepoMock.Object, logger.Object);
         }
 
         // Helpers 
 
-        private void SetupHotels(string? city, List<Hotel> hotels) =>
-            _hotelRepoMock.Setup(r => r.GetAllAsync(city)).ReturnsAsync(hotels);
+        private void SetupHotels(string? city, List<Hotel> hotels, int page = 1, int pageSize = 6) =>
+    _hotelRepoMock
+        .Setup(r => r.GetAllAsync(city, page, pageSize))
+        .ReturnsAsync((hotels, hotels.Count));
 
         private void SetupHotel(int id, Hotel? hotel) =>
             _hotelRepoMock.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(hotel);
@@ -62,8 +64,9 @@ namespace HotelBookingEngineDashboard.Tests.Services
             var result = await _sut.GetAllHotelsAsync();
 
             // Assert
-            result.Should().HaveCount(2);
-            result.First().Name.Should().Be("The Grand Oberoi");
+            result.Items.Should().HaveCount(2);
+            result.Items.First().Name.Should().Be("The Grand Oberoi");
+            result.TotalCount.Should().Be(2);
         }
 
         [Fact]
@@ -76,8 +79,8 @@ namespace HotelBookingEngineDashboard.Tests.Services
             var result = await _sut.GetAllHotelsAsync("Mumbai");
 
             // Assert
-            result.Should().HaveCount(1);
-            result.First().City.Should().Be("Mumbai");
+            result.Items.Should().HaveCount(1);
+            result.Items.First().City.Should().Be("Mumbai");
         }
 
         [Fact]
@@ -90,7 +93,8 @@ namespace HotelBookingEngineDashboard.Tests.Services
             var result = await _sut.GetAllHotelsAsync();
 
             // Assert
-            result.Should().BeEmpty();
+            result.Items.Should().BeEmpty();
+            result.TotalCount.Should().Be(0);
         }
 
         // GetHotelByIdAsync Tests 

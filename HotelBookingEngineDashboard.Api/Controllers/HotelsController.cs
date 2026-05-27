@@ -19,10 +19,10 @@ namespace HotelBookingEngineDashboard.Api.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> GetAll([FromQuery] string? city = null)
+        public async Task<IActionResult> GetAll([FromQuery] string? city = null,[FromQuery] int page = 1,[FromQuery] int pageSize = 6)
         {
-            var hotels = await _hotelService.GetAllHotelsAsync(city);
-            return Ok(hotels);
+            var result = await _hotelService.GetAllHotelsAsync(city, page, pageSize);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]

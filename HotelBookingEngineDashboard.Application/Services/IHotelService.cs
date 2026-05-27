@@ -1,4 +1,5 @@
 ﻿using global::HotelBookingEngineDashboard.Application.DTOs;
+using HotelBookingEngineDashboard.Application.DTOs.Common;
 using HotelBookingEngineDashboard.Application.DTOs.Hotels;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace HotelBookingEngineDashboard.Application.Services
 {
     public interface IHotelService
     {
-        Task<IEnumerable<HotelDto>> GetAllHotelsAsync(string? city = null);
         Task<HotelDetailDto?> GetHotelByIdAsync(int id);
+        Task<PagedResult<HotelDto>> GetAllHotelsAsync(string? city = null,int page = 1,int pageSize = 6);
     }
 }

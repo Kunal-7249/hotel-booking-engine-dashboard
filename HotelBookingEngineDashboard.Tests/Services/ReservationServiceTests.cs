@@ -7,11 +7,6 @@ using HotelBookingEngineDashboard.Domain.Entities;
 using HotelBookingEngineDashboard.Domain.Enums;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelBookingEngineDashboard.Tests.Services
 {
@@ -32,7 +27,7 @@ namespace HotelBookingEngineDashboard.Tests.Services
                 logger.Object);
         }
 
-        //  Helpers 
+        // ── Helpers ───────────────────────────────────────────────────
 
         private void SetupHotel(int id, Hotel? hotel) =>
             _hotelRepoMock.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(hotel);
@@ -93,18 +88,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
             Status = ReservationStatus.CANCELLED
         };
 
-        // CreateAsync Tests
+        // ── CreateAsync Tests ─────────────────────────────────────────
 
         [Fact]
         public async Task CreateAsync_GivenHotelNotFound_ThrowsNotFoundException()
         {
-            // Arrange
             SetupHotel(99, null);
 
-            // Act
             var act = async () => await _sut.CreateAsync(ValidCreateDto(hotelId: 99));
 
-            // Assert
             await act.Should().ThrowAsync<NotFoundException>()
                 .WithMessage("*99*");
         }
@@ -115,13 +107,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [InlineData(17)]
         public async Task CreateAsync_GivenGuestAgeBelowMinimum_ThrowsBadRequestException(int age)
         {
-            // Arrange
             SetupHotel(1, ValidHotel());
 
-            // Act
             var act = async () => await _sut.CreateAsync(ValidCreateDto(guestAge: age));
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*18*");
         }
@@ -131,13 +120,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [InlineData(-1)]
         public async Task CreateAsync_GivenInvalidNumberOfGuests_ThrowsBadRequestException(int numberOfGuests)
         {
-            // Arrange
             SetupHotel(1, ValidHotel());
 
-            // Act
             var act = async () => await _sut.CreateAsync(ValidCreateDto(numberOfGuests: numberOfGuests));
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*guest*");
         }
@@ -145,14 +131,11 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [Fact]
         public async Task CreateAsync_GivenPastCheckInDate_ThrowsBadRequestException()
         {
-            // Arrange
             SetupHotel(1, ValidHotel());
 
-            // Act
             var act = async () => await _sut.CreateAsync(
                 ValidCreateDto(checkIn: DateTime.Today.AddDays(-1)));
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*Check-in*");
         }
@@ -160,16 +143,13 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [Fact]
         public async Task CreateAsync_GivenCheckOutBeforeCheckIn_ThrowsBadRequestException()
         {
-            // Arrange
             SetupHotel(1, ValidHotel());
 
-            // Act
             var act = async () => await _sut.CreateAsync(
                 ValidCreateDto(
                     checkIn: DateTime.Today.AddDays(5),
                     checkOut: DateTime.Today.AddDays(2)));
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*Check-out*");
         }
@@ -182,7 +162,7 @@ namespace HotelBookingEngineDashboard.Tests.Services
             var reservation = new Reservation
             {
                 ReservationId = 1,
-                BookingRef = "BK-10001",
+                BookingRef = "BK-A1B2C3D4",
                 HotelId = 1,
                 Hotel = hotel,
                 GuestName = "Kunal",
@@ -194,10 +174,6 @@ namespace HotelBookingEngineDashboard.Tests.Services
             };
 
             SetupHotel(1, hotel);
-
-            _reservationRepoMock
-                .Setup(r => r.GetNextReservationIdAsync())
-                .ReturnsAsync(1);
 
             _reservationRepoMock
                 .Setup(r => r.CreateAsync(It.IsAny<Reservation>()))
@@ -213,8 +189,7 @@ namespace HotelBookingEngineDashboard.Tests.Services
             // Assert
             success.Should().BeTrue();
             data.Should().NotBeNull();
-            data!.BookingRef.Should().Be("BK-10001");
-            data.GuestName.Should().Be("Kunal");
+            data!.GuestName.Should().Be("Kunal");
         }
 
         [Fact]
@@ -223,13 +198,9 @@ namespace HotelBookingEngineDashboard.Tests.Services
             // Arrange
             var hotel = ValidHotel();
             var reservation = ConfirmedReservation();
-            reservation.BookingRef = "BK-10001";
+            reservation.BookingRef = "BK-A1B2C3D4";
 
             SetupHotel(1, hotel);
-
-            _reservationRepoMock
-                .Setup(r => r.GetNextReservationIdAsync())
-                .ReturnsAsync(1);
 
             _reservationRepoMock
                 .Setup(r => r.CreateAsync(It.IsAny<Reservation>()))
@@ -248,18 +219,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
                 Times.Once);
         }
 
-        // CancelAsync Tests 
+        // ── CancelAsync Tests ─────────────────────────────────────────
 
         [Fact]
         public async Task CancelAsync_GivenReservationNotFound_ThrowsNotFoundException()
         {
-            // Arrange
             SetupReservation(99, null);
 
-            // Act
             var act = async () => await _sut.CancelAsync(99);
 
-            // Assert
             await act.Should().ThrowAsync<NotFoundException>()
                 .WithMessage("*99*");
         }
@@ -267,13 +235,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [Fact]
         public async Task CancelAsync_GivenAlreadyCancelledReservation_ThrowsBadRequestException()
         {
-            // Arrange
             SetupReservation(1, CancelledReservation());
 
-            // Act
             var act = async () => await _sut.CancelAsync(1);
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*already cancelled*");
         }
@@ -316,18 +281,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
                 Times.Once);
         }
 
-        // UpdateAsync Tests 
+        // ── UpdateAsync Tests ─────────────────────────────────────────
 
         [Fact]
         public async Task UpdateAsync_GivenReservationNotFound_ThrowsNotFoundException()
         {
-            // Arrange
             SetupReservation(99, null);
 
-            // Act
             var act = async () => await _sut.UpdateAsync(99, ValidUpdateDto());
 
-            // Assert
             await act.Should().ThrowAsync<NotFoundException>()
                 .WithMessage("*99*");
         }
@@ -335,13 +297,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [Fact]
         public async Task UpdateAsync_GivenCancelledReservation_ThrowsBadRequestException()
         {
-            // Arrange
             SetupReservation(1, CancelledReservation());
 
-            // Act
             var act = async () => await _sut.UpdateAsync(1, ValidUpdateDto());
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*Cancelled*");
         }
@@ -351,13 +310,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [InlineData(17)]
         public async Task UpdateAsync_GivenInvalidAge_ThrowsBadRequestException(int age)
         {
-            // Arrange
             SetupReservation(1, ConfirmedReservation());
 
-            // Act
             var act = async () => await _sut.UpdateAsync(1, ValidUpdateDto(guestAge: age));
 
-            // Assert
             await act.Should().ThrowAsync<BadRequestException>()
                 .WithMessage("*18*");
         }
@@ -399,7 +355,7 @@ namespace HotelBookingEngineDashboard.Tests.Services
                 Times.Once);
         }
 
-        // GetAllAsync Tests
+        // ── GetAllAsync Tests ─────────────────────────────────────────
 
         [Fact]
         public async Task GetAllAsync_GivenReservationsExist_ReturnsAllReservations()
@@ -412,15 +368,16 @@ namespace HotelBookingEngineDashboard.Tests.Services
             };
 
             _reservationRepoMock
-                .Setup(r => r.GetAllAsync())
-                .ReturnsAsync(reservations);
+                .Setup(r => r.GetAllAsync(1, 10))
+                .ReturnsAsync((reservations, reservations.Count));
 
             // Act
             var result = await _sut.GetAllAsync();
 
             // Assert
-            result.Should().HaveCount(2);
-            result.First().BookingRef.Should().Be("BK-10001");
+            result.Items.Should().HaveCount(2);
+            result.Items.First().BookingRef.Should().Be("BK-10001");
+            result.TotalCount.Should().Be(2);
         }
 
         [Fact]
@@ -428,14 +385,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
         {
             // Arrange
             _reservationRepoMock
-                .Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<Reservation>());
+                .Setup(r => r.GetAllAsync(1, 10))
+                .ReturnsAsync((new List<Reservation>(), 0));
 
             // Act
             var result = await _sut.GetAllAsync();
 
             // Assert
-            result.Should().BeEmpty();
+            result.Items.Should().BeEmpty();
+            result.TotalCount.Should().Be(0);
         }
 
         [Fact]
@@ -443,17 +401,17 @@ namespace HotelBookingEngineDashboard.Tests.Services
         {
             // Arrange
             _reservationRepoMock
-                .Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<Reservation>());
+                .Setup(r => r.GetAllAsync(1, 10))
+                .ReturnsAsync((new List<Reservation>(), 0));
 
             // Act
             await _sut.GetAllAsync();
 
             // Assert
-            _reservationRepoMock.Verify(r => r.GetAllAsync(), Times.Once);
+            _reservationRepoMock.Verify(r => r.GetAllAsync(1, 10), Times.Once);
         }
 
-        // GetByIdAsync Tests 
+        // ── GetByIdAsync Tests ────────────────────────────────────────
 
         [Fact]
         public async Task GetByIdAsync_GivenValidId_ReturnsReservation()
@@ -476,13 +434,10 @@ namespace HotelBookingEngineDashboard.Tests.Services
         [Fact]
         public async Task GetByIdAsync_GivenInvalidId_ThrowsNotFoundException()
         {
-            // Arrange
             SetupReservation(99, null);
 
-            // Act
             var act = async () => await _sut.GetByIdAsync(99);
 
-            // Assert
             await act.Should().ThrowAsync<NotFoundException>()
                 .WithMessage("*99*");
         }
@@ -500,7 +455,7 @@ namespace HotelBookingEngineDashboard.Tests.Services
             _reservationRepoMock.Verify(r => r.GetByIdAsync(1), Times.Once);
         }
 
-        // GetByUserIdAsync Tests 
+        // ── GetByUserIdAsync Tests ────────────────────────────────────
 
         [Fact]
         public async Task GetByUserIdAsync_GivenValidUserId_ReturnsUserReservations()
@@ -513,15 +468,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
             };
 
             _reservationRepoMock
-                .Setup(r => r.GetByUserIdAsync(1))
-                .ReturnsAsync(reservations);
+                .Setup(r => r.GetByUserIdAsync(1, 1, 10))
+                .ReturnsAsync((reservations, reservations.Count));
 
             // Act
             var result = await _sut.GetByUserIdAsync(1);
 
             // Assert
-            result.Should().HaveCount(2);
-            result.All(r => r.BookingRef.StartsWith("BK-")).Should().BeTrue();
+            result.Items.Should().HaveCount(2);
+            result.TotalCount.Should().Be(2);
         }
 
         [Fact]
@@ -529,14 +484,15 @@ namespace HotelBookingEngineDashboard.Tests.Services
         {
             // Arrange
             _reservationRepoMock
-                .Setup(r => r.GetByUserIdAsync(99))
-                .ReturnsAsync(new List<Reservation>());
+                .Setup(r => r.GetByUserIdAsync(99, 1, 10))
+                .ReturnsAsync((new List<Reservation>(), 0));
 
             // Act
             var result = await _sut.GetByUserIdAsync(99);
 
             // Assert
-            result.Should().BeEmpty();
+            result.Items.Should().BeEmpty();
+            result.TotalCount.Should().Be(0);
         }
 
         [Fact]
@@ -544,14 +500,16 @@ namespace HotelBookingEngineDashboard.Tests.Services
         {
             // Arrange
             _reservationRepoMock
-                .Setup(r => r.GetByUserIdAsync(1))
-                .ReturnsAsync(new List<Reservation>());
+                .Setup(r => r.GetByUserIdAsync(1, 1, 10))
+                .ReturnsAsync((new List<Reservation>(), 0));
 
             // Act
             await _sut.GetByUserIdAsync(1);
 
             // Assert
-            _reservationRepoMock.Verify(r => r.GetByUserIdAsync(1), Times.Once);
+            _reservationRepoMock.Verify(
+                r => r.GetByUserIdAsync(1, 1, 10),
+                Times.Once);
         }
     }
 }

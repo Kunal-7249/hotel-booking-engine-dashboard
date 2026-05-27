@@ -9,7 +9,7 @@ namespace HotelBookingEngineDashboard.Application.Interfaces
 {
     public interface IHotelRepository
     {
-        Task<IEnumerable<Hotel>> GetAllAsync(string? city = null);
         Task<Hotel?> GetByIdAsync(int id);
+        Task<(IEnumerable<Hotel> Items, int TotalCount)> GetAllAsync(string? city = null,int page = 1,int pageSize = 6);
     }
 }

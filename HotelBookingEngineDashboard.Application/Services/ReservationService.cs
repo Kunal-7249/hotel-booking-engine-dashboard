@@ -1,4 +1,5 @@
-﻿using HotelBookingEngineDashboard.Application.DTOs.Reservations;
+﻿using HotelBookingEngineDashboard.Application.DTOs.Common;
+using HotelBookingEngineDashboard.Application.DTOs.Reservations;
 using HotelBookingEngineDashboard.Application.Exceptions;
 using HotelBookingEngineDashboard.Application.Interfaces;
 using HotelBookingEngineDashboard.Domain.Entities;
@@ -28,12 +29,6 @@ namespace HotelBookingEngineDashboard.Application.Services
             _logger = logger;
         }
 
-        public async Task<IEnumerable<ReservationDto>> GetAllAsync()
-        {
-            var reservations = await _reservationRepo.GetAllAsync();
-            return reservations.Select(MapToDto);
-        }
-
         public async Task<ReservationDto?> GetByIdAsync(int id)
         {
             var reservation = await _reservationRepo.GetByIdAsync(id)
@@ -42,10 +37,30 @@ namespace HotelBookingEngineDashboard.Application.Services
             return MapToDto(reservation);
         }
 
-        public async Task<IEnumerable<ReservationDto>> GetByUserIdAsync(int userId)
+        public async Task<PagedResult<ReservationDto>> GetAllAsync(int page = 1,int pageSize = 10)
         {
-            var reservations = await _reservationRepo.GetByUserIdAsync(userId);
-            return reservations.Select(MapToDto);
+            var (reservations, totalCount) = await _reservationRepo.GetAllAsync(page, pageSize);
+
+            return new PagedResult<ReservationDto>
+            {
+                Items = reservations.Select(MapToDto),
+                TotalCount = totalCount,
+                Page = page,
+                PageSize = pageSize
+            };
+        }
+
+        public async Task<PagedResult<ReservationDto>> GetByUserIdAsync(int userId,int page = 1,int pageSize = 10)
+        {
+            var (reservations, totalCount) = await _reservationRepo.GetByUserIdAsync(userId, page, pageSize);
+
+            return new PagedResult<ReservationDto>
+            {
+                Items = reservations.Select(MapToDto),
+                TotalCount = totalCount,
+                Page = page,
+                PageSize = pageSize
+            };
         }
 
         public async Task<(bool success, string message, ReservationDto? data)> CreateAsync(CreateReservationDto dto)

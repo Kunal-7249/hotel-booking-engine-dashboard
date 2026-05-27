@@ -25,10 +25,10 @@ namespace HotelBookingEngineDashboard.Api.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] int page = 1,[FromQuery] int pageSize = 10)
         {
-            var reservations = await _reservationService.GetAllAsync();
-            return Ok(reservations);
+            var result = await _reservationService.GetAllAsync(page, pageSize);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
@@ -56,10 +56,11 @@ namespace HotelBookingEngineDashboard.Api.Controllers
 
         [HttpGet("my-bookings")]
         [Authorize(Roles = "Admin,ExternalUser")]
-        public async Task<IActionResult> GetMyBookings()
+        public async Task<IActionResult> GetMyBookings([FromQuery] int page = 1,[FromQuery] int pageSize = 10)
         {
-            var reservations = await _reservationService.GetByUserIdAsync(GetCurrentUserId());
-            return Ok(reservations);
+            var result = await _reservationService.GetByUserIdAsync(
+                GetCurrentUserId(), page, pageSize);
+            return Ok(result);
         }
 
         [HttpPut("{id}")]

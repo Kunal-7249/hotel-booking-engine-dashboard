@@ -8,9 +8,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { ReservationService } from '../../../core/services/reservation.service';
 import { Reservation } from '../../../core/models/reservation.model';
+import { PagedResult } from '../../../core/models/paged-result.model';
 import { ConfirmDialog } from '../../../shared/components/confirm-dialog/confirm-dialog';
 
 @Component({
@@ -24,12 +26,13 @@ import { ConfirmDialog } from '../../../shared/components/confirm-dialog/confirm
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatPaginatorModule,   // ← add
     DatePipe
   ],
   templateUrl: './reservation-list.html',
   styleUrl: './reservation-list.scss'
 })
-export class ReservationList {
+export class ReservationList implements OnInit {
   private reservationService = inject(ReservationService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -37,11 +40,13 @@ export class ReservationList {
   private snackBar = inject(MatSnackBar);
 
   reservations = signal<Reservation[]>([]);
+  totalCount = signal(0);
   isLoading = signal(false);
+  currentPage = signal(0);
+  pageSize = signal(10);
   displayedColumns = ['bookingRef', 'hotelName', 'guestName', 'checkInDate', 'checkOutDate', 'status', 'actions'];
 
   ngOnInit(): void {
-    
     const success = this.route.snapshot.queryParamMap.get('success');
     if (success) {
       this.snackBar.open(success, 'Close', { duration: 4000, panelClass: 'snack-success' });
@@ -51,13 +56,23 @@ export class ReservationList {
 
   loadReservations(): void {
     this.isLoading.set(true);
-    this.reservationService.getAll().subscribe({
-      next: (data) => {
-        this.reservations.set(data);
+    this.reservationService.getAll(
+      this.currentPage() + 1,
+      this.pageSize()
+    ).subscribe({
+      next: (result: PagedResult<Reservation>) => {
+        this.reservations.set(result.items);
+        this.totalCount.set(result.totalCount);
         this.isLoading.set(false);
       },
       error: () => this.isLoading.set(false)
     });
+  }
+
+  onPageChange(event: PageEvent): void {
+    this.currentPage.set(event.pageIndex);
+    this.pageSize.set(event.pageSize);
+    this.loadReservations();
   }
 
   modifyReservation(id: number): void {

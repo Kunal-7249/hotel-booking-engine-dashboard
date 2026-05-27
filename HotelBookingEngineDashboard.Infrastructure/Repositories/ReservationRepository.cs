@@ -19,14 +19,6 @@ namespace HotelBookingEngineDashboard.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Reservation>> GetAllAsync()
-        {
-            return await _context.Reservations
-                .Include(r => r.Hotel)           
-                .OrderByDescending(r => r.CreatedAt) 
-                .ToListAsync();
-        }
-
         public async Task<Reservation?> GetByIdAsync(int id)
         {
             return await _context.Reservations
@@ -34,13 +26,37 @@ namespace HotelBookingEngineDashboard.Infrastructure.Repositories
                 .FirstOrDefaultAsync(r => r.ReservationId == id);
         }
 
-        public async Task<IEnumerable<Reservation>> GetByUserIdAsync(int userId)
+        public async Task<(IEnumerable<Reservation> Items, int TotalCount)> GetAllAsync(int page = 1,int pageSize = 10)
         {
-            return await _context.Reservations
+            var query = _context.Reservations
+                .Include(r => r.Hotel)
+                .OrderByDescending(r => r.CreatedAt);
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (items, totalCount);
+        }
+
+        public async Task<(IEnumerable<Reservation> Items, int TotalCount)> GetByUserIdAsync(int userId,int page = 1,int pageSize = 10)
+        {
+            var query = _context.Reservations
                 .Include(r => r.Hotel)
                 .Where(r => r.UserId == userId)
-                .OrderByDescending(r => r.CreatedAt)
+                .OrderByDescending(r => r.CreatedAt);
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+
+            return (items, totalCount);
         }
 
         public async Task<int> GetNextReservationIdAsync()

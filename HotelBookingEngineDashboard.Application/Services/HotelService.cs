@@ -1,4 +1,5 @@
-﻿using HotelBookingEngineDashboard.Application.DTOs.Hotels;
+﻿using HotelBookingEngineDashboard.Application.DTOs.Common;
+using HotelBookingEngineDashboard.Application.DTOs.Hotels;
 using HotelBookingEngineDashboard.Application.Exceptions;
 using HotelBookingEngineDashboard.Application.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -19,20 +20,27 @@ namespace HotelBookingEngineDashboard.Application.Services
             _logger = logger;
         }
 
-        public async Task<IEnumerable<HotelDto>> GetAllHotelsAsync(string? city = null)
+        public async Task<PagedResult<HotelDto>> GetAllHotelsAsync(string? city = null,int page = 1,int pageSize = 6)
         {
-            _logger.LogInformation("Fetching all hotels. CityFilter: {City}", city ?? "none");
+            _logger.LogInformation("Fetching hotels. City: {City}, Page: {Page}, PageSize: {PageSize}",
+                city ?? "none", page, pageSize);
 
-            var hotels = await _hotelRepository.GetAllAsync(city);
+            var (hotels, totalCount) = await _hotelRepository.GetAllAsync(city, page, pageSize);
 
-            return hotels.Select(h => new HotelDto
+            return new PagedResult<HotelDto>
             {
-                HotelId = h.HotelId,
-                Name = h.Name,
-                City = h.City,
-                StarRating = h.StarRating,
-                PricePerNight = h.PricePerNight
-            });
+                Items = hotels.Select(h => new HotelDto
+                {
+                    HotelId = h.HotelId,
+                    Name = h.Name,
+                    City = h.City,
+                    StarRating = h.StarRating,
+                    PricePerNight = h.PricePerNight
+                }),
+                TotalCount = totalCount,
+                Page = page,
+                PageSize = pageSize
+            };
         }
 
         public async Task<HotelDetailDto?> GetHotelByIdAsync(int id)

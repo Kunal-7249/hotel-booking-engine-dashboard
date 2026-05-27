@@ -19,7 +19,6 @@
   @if (!isLoading() && reservations().length > 0) {
     <mat-card class="table-card">
       <table mat-table [dataSource]="reservations()" class="full-width">
-
         <!-- Booking Ref -->
         <ng-container matColumnDef="bookingRef">
           <th mat-header-cell *matHeaderCellDef>Booking Ref</th>
@@ -72,7 +71,8 @@
               class="action-btn"
               [disabled]="r.status === 'CANCELLED'"
               (click)="modifyReservation(r.reservationId)"
-              matTooltip="Modify Reservation">
+              matTooltip="Modify Reservation"
+            >
               <mat-icon>edit</mat-icon>
             </button>
             <button
@@ -81,15 +81,25 @@
               class="action-btn"
               [disabled]="r.status === 'CANCELLED'"
               (click)="cancelReservation(r)"
-              matTooltip="Cancel Reservation">
+              matTooltip="Cancel Reservation"
+            >
               <mat-icon>cancel</mat-icon>
             </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
+      <mat-paginator
+        [length]="totalCount()"
+        [pageSize]="pageSize()"
+        [pageIndex]="currentPage()"
+        [pageSizeOptions]="[5, 10, 20]"
+        (page)="onPageChange($event)"
+        showFirstLastButtons
+      >
+      </mat-paginator>
     </mat-card>
   }
 </div>

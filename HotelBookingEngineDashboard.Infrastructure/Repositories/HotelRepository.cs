@@ -15,14 +15,21 @@ namespace HotelBookingEngineDashboard.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Hotel>> GetAllAsync(string? city = null)
+        public async Task<(IEnumerable<Hotel> Items, int TotalCount)> GetAllAsync(string? city = null,int page = 1,int pageSize = 6)
         {
             var query = _context.Hotels.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(city))
                 query = query.Where(h => h.City.ToLower() == city.ToLower());
 
-            return await query.ToListAsync();
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (items, totalCount);
         }
 
         public async Task<Hotel?> GetByIdAsync(int id)

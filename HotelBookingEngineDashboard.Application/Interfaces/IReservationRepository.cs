@@ -9,9 +9,9 @@ namespace HotelBookingEngineDashboard.Application.Interfaces
 {
     public interface IReservationRepository
     {
-        Task<IEnumerable<Reservation>> GetAllAsync();
         Task<Reservation?> GetByIdAsync(int id);
-        Task<IEnumerable<Reservation>> GetByUserIdAsync(int userId);
+        Task<(IEnumerable<Reservation> Items, int TotalCount)> GetAllAsync(int page = 1,int pageSize = 10);
+        Task<(IEnumerable<Reservation> Items, int TotalCount)> GetByUserIdAsync(int userId,int page = 1,int pageSize = 10);
         Task<int> GetNextReservationIdAsync();
         Task<Reservation> CreateAsync(Reservation reservation);
         Task UpdateAsync(Reservation reservation);
