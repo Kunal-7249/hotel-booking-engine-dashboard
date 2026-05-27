@@ -31,6 +31,12 @@
     <div class="hotels-grid">
       @for (hotel of hotels(); track hotel.hotelId) {
         <mat-card class="hotel-card">
+          <img
+            mat-card-image
+            [src]="getHotelImage(hotel.hotelId)"
+            [alt]="hotel.name"
+            class="hotel-image"
+          />
           <mat-card-header>
             <mat-card-title>{{ hotel.name }}</mat-card-title>
             <mat-card-subtitle>{{ hotel.city }}</mat-card-subtitle>
@@ -55,7 +61,7 @@
       [length]="totalCount()"
       [pageSize]="pageSize()"
       [pageIndex]="currentPage()"
-      [pageSizeOptions]="[3, 6, 9, 12]"
+      [pageSizeOptions]="[4, 8, 12, 16]"
       (page)="onPageChange($event)"
       showFirstLastButtons
     >
